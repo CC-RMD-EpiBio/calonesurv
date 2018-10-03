@@ -18,14 +18,9 @@ surv_data = with(subset(survival::lung,ph.ecog %in% 0:2),
                             time = time, cohort = ph.ecog ))
 
 out = Theta_hat(surv_data)
-print(out)
 print(confint(out))
 print(pvalue.Theta_hat(out))
 
-pdf("fig5.pdf",family="CM Roman", width=6, height=4)
 plot(out,main="",ylab = "")
-text(600,0.45,"Females",col='red')
-text(400,0.22,"Males")
 
-dev.off()
 ```
